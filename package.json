@@ -1,0 +1,55 @@
+{
+    "name": "svelte-preprocess-remove-testid",
+    "version": "0.0.1",
+    "description": "svelte/sveltekit preprocessor to remove 'data-' prefixed attributes",
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "bugs": {
+        "url": "https://github.com/jacobbogers/svelte-preprocess-remove-testid/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/jacobbogers/svelte-preprocess-remove-testid.git"
+    },
+    "sideEffects": false,
+    "files": [
+        "dist",
+        "README.md",
+        "package.json",
+        "LICENSE.txt"
+    ],
+    "type": "module",
+    "scripts": {
+        "prebuild": "npm run lint",
+        "build": "tsc",
+        "prepublishOnly": "npm run build",
+        "lint": "biome check --apply src"
+    },
+    "keywords": [
+        "sveltekit",
+        "preprocess",
+        "preprocessor",
+        "svelte",
+        "data-testid"
+    ],
+    "author": "jacob bogers <jkfbogers@gmail.com>",
+    "license": "SEE LICENSE IN LICENSE.txt",
+    "engines": {
+        "node": ">=v20.14.0"
+    },
+    "devDependencies": {
+        "@biomejs/biome": "1.7.3",
+        "@rollup/pluginutils": "5.1.0",
+        "@types/node": "18.15.3",
+        "@typescript-eslint/eslint-plugin": "5.55.0",
+        "svelte": "4.2.18",
+        "typescript": "5.0.2"
+    },
+    "peerDependencies": {
+        "@sveltejs/kit": "2 - 2.5",
+        "svelte": "4 - 5"
+    },
+    "dependencies": {
+        "info": "0.0.6-beta.0"
+    }
+}
