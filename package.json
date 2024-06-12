@@ -41,15 +41,13 @@
         "@biomejs/biome": "1.7.3",
         "@rollup/pluginutils": "5.1.0",
         "@types/node": "18.15.3",
-        "@typescript-eslint/eslint-plugin": "5.55.0",
         "svelte": "4.2.18",
         "typescript": "5.0.2"
     },
     "peerDependencies": {
         "@sveltejs/kit": "2 - 2.5",
-        "svelte": "4 - 5"
-    },
-    "dependencies": {
-        "info": "0.0.6-beta.0"
+        "magic-string": ">=0.30.10",
+        "svelte": "4 - 5",
+        "estree-walker": "3.x"
     }
 }
