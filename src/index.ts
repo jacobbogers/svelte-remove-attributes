@@ -10,26 +10,40 @@ import type { PreprocessorGroup, Processed } from 'svelte/types/compiler/preproc
 import type { TemplateNode } from 'svelte/types/compiler/interfaces';
 
 export { PreprocessorGroup } from 'svelte/types/compiler/preprocess';
-export interface RemoveAttributeOptions {
+
+export type RemoveAttributeOptions = Partial<{
     attributes: string[];
-    include?: FilterPattern;
-    exclude?: FilterPattern;
-    environments?: string[];
-    debug?: boolean;
+    include: FilterPattern;
+    exclude: FilterPattern;
+    environments: string[];
+    debug: boolean;
+}>;
+
+function defaultOptions(raw?: RemoveAttributeOptions): Required<RemoveAttributeOptions> {
+    const o: RemoveAttributeOptions = raw ?? {};
+    if (!o.attributes || o.attributes.length === 0) {
+        o.attributes = ['data-testid'];
+    }
+    if (!o.include) {
+        o.include = [/\.svelte$/];
+    }
+    if (!o.exclude) {
+        o.exclude = ['**/node_modules/**'];
+    }
+    if (!o.environments || o.environments.length === 0) {
+        o.environments = ['production'];
+    }
+    if (o.debug === undefined) {
+        o.debug = false;
+    }
+    return o as Required<RemoveAttributeOptions>;
 }
 // { include = [/\.[tj]sx$/], exclude = ["**/node_modules/**"], attributes, usage = "rollup", environments = ["production"], debug = false, }
-export function removeTestIdPreprocessor(
-    {
-        include = [/\.svelte$/],
-        exclude = ['**/node_modules/**'],
-        attributes,
-        environments = ['production'],
-        debug
-    }: RemoveAttributeOptions = {
-        attributes: ['data-testid'],
-        debug: false
-    }
-): false | PreprocessorGroup {
+export function removeTestIdPreprocessor(o?: RemoveAttributeOptions): false | PreprocessorGroup {
+    const finalOptions = defaultOptions(o);
+
+    const { include, exclude, environments, debug, attributes } = finalOptions;
+
     const filterValidFile = createFilter(include, exclude);
     const plName = 'preprocess:remove-attributes';
     const node_env_lowercase = process.env.NODE_ENV?.toLowerCase() || '';
