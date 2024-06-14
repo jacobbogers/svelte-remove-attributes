@@ -1,22 +1,22 @@
 {
-    "name": "svelte-preprocess-remove-testid",
-    "version": "0.0.2",
-    "description": "svelte/sveltekit preprocessor to remove 'data-' prefixed attributes",
+    "name": "svelte-remove-attributes",
+    "version": "0.0.3",
+    "description": "svelte/sveltekit preprocessor to remove attributes like data-testid",
     "main": "./dist/index.js",
     "types": "./dist/index.d.ts",
     "bugs": {
-        "url": "https://github.com/jacobbogers/svelte-preprocess-remove-testid/issues"
+        "url": "https://github.com/jacobbogers/svelte-remove-attributes/issues"
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/jacobbogers/svelte-preprocess-remove-testid.git"
+        "url": "https://github.com/jacobbogers/svelte-remove-attributes.git"
     },
     "sideEffects": false,
     "files": [
         "dist",
         "README.md",
         "package.json",
-        "LICENSE.txt"
+        "LICENSE"
     ],
     "type": "module",
     "scripts": {
