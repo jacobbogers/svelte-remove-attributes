@@ -1,8 +1,6 @@
-# svelte-preprocess-remove-testid
+# svelte-remove-attributes
 
-svelte(kit) preprocessor to attributes (default `data-testid` attribute)
-
-use for svelte or sveltekit
+Svelte & Sveltekit preprocessor to remove attributes (like `data-testid`).
 
 The initial motivation was to remove `data-testid` attributes from production build.
 
@@ -14,7 +12,7 @@ The preprocessor only runs when `NODE_ENV` matches the values of the `environmen
 
 ```bash
 
-npm i -D svelte-preprocess-remove-testid
+npm i -D svelte-remove-attributes
 ```
 
 ## Usage with Svelte & SvelteKit
@@ -28,7 +26,7 @@ Example:
 import nodeAdapter from '@sveltejs/adapter-node';
 import adapter from '@sveltejs/adapter-static';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
-import removeTestIdPreprocessor from 'svelte-preprocess-remove-testid';
+import removeTestIdPreprocessor from 'svelte-remove-attributes';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
