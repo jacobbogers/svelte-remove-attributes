@@ -38,8 +38,8 @@ function defaultOptions(raw?: RemoveAttributeOptions): Required<RemoveAttributeO
     }
     return o as Required<RemoveAttributeOptions>;
 }
-// { include = [/\.[tj]sx$/], exclude = ["**/node_modules/**"], attributes, usage = "rollup", environments = ["production"], debug = false, }
-export function removeTestIdPreprocessor(o?: RemoveAttributeOptions): false | PreprocessorGroup {
+
+export default function removeTestIdPreprocessor(o?: RemoveAttributeOptions): false | PreprocessorGroup {
     const finalOptions = defaultOptions(o);
 
     const { include, exclude, environments, debug, attributes } = finalOptions;

@@ -1,6 +1,6 @@
 {
     "name": "svelte-preprocess-remove-testid",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "svelte/sveltekit preprocessor to remove 'data-' prefixed attributes",
     "main": "./dist/index.js",
     "types": "./dist/index.d.ts",
@@ -33,7 +33,7 @@
         "data-testid"
     ],
     "author": "jacob bogers <jkfbogers@gmail.com>",
-    "license": "SEE LICENSE IN LICENSE.txt",
+    "license": "SEE LICENSE IN file LICENSE",
     "engines": {
         "node": ">=v20.14.0"
     },
